@@ -55,7 +55,7 @@ class LoginView(View):
         """GETリクエスト用のメソッド"""
         # すでにログインしている場合はショップ画面へリダイレクト
         if request.user.is_authenticated:
-            return redirect(reverse('shop:index'))
+            return redirect(reverse('health:lists_list'))
 
         context = {
             'form': LoginForm(),
@@ -88,7 +88,7 @@ class LoginView(View):
         messages.info(request, "ログインしました。")
 
         # ショップ画面にリダイレクト
-        return redirect(reverse('shop:index'))
+        return redirect(reverse('health:lists_list'))
 
 
 login = LoginView.as_view()

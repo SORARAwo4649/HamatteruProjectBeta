@@ -7,6 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/accounts/login/')),
     path('accounts/', include('accounts.urls')),
+    path("health/", include("health.urls")),
 ]
 
 if settings.DEBUG:

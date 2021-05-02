@@ -31,6 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'accounts.apps.AccountsConfig',
+    'health.apps.HealthConfig',
+    'bootstrap_datepicker_plus',
+    'crispy_forms',
+    'django_filters',
+    'bootstrap4',
     # 'django_cleanup',
 
     # 'django.contrib.sites',
