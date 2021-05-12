@@ -38,8 +38,10 @@ class ListCreateView(LoginRequiredMixin, CreateView):
     def post(self, request, *args, **kwargs):
         
         form = ListForm(request.POST)
+        print("################")
+        
         if form.is_valid():
-            form.user = self.request.user
+            form.instance.created_by = self.request.user
             instance_form = form.save()
 
             # 睡眠時間の計算
@@ -103,8 +105,8 @@ class ListListView(LoginRequiredMixin, ListView):
         # 一般ユーザは自分のレコードのみ表示する。
         else: 
             print("一般")
-            print(List.objects.filter(user=current_user.id).order_by("date").reverse().values(*value)[0])
-            return List.objects.filter(user=current_user.id).order_by("date").reverse()
+            # print(List.objects.filter(created_by=current_user.id).order_by("date").reverse().values()[0])
+            return List.objects.filter(created_by=current_user).order_by("date").reverse()
 
 
 class ListDetailView(LoginRequiredMixin, DetailView):
