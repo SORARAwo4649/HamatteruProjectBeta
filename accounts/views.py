@@ -79,7 +79,7 @@ class LoginView(View):
         auth_login(request, user)
 
         # ログイン後処理（ログイン回数を増やしたりする。本来は user_logged_in シグナルを使えばもっと簡単に書ける）
-        user.post_login()
+        # user.post_login()
 
         # ロギング
         logger.info("User(id={}) has logged in.".format(user.id))
